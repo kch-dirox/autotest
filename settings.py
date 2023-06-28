@@ -21,14 +21,16 @@ LOCAL_DIRSEP = "\\"
 LOG_FOLDER = join(BASEDIR, "logs")
 DBCONFIG_FILE = join(BASEDIR,"DBconfig.ini")
 
-# get screensize 
-resolution = micel.get_monitor_resolution()
-if resolution :    
-    screensize_width = resolution[0]
-    screensize_height = resolution[1]
-else : 
-    screensize_width = 0
-    screensize_height = 0
+screensize_width = 0
+screensize_height = 0
+try: 
+    # get screensize 
+    resolution = micel.get_monitor_resolution()
+    if resolution :    
+        screensize_width = resolution[0]
+        screensize_height = resolution[1]
+except Exception:
+    pass 
 
 # parameters fro appium 
 # APPIUM = {
