@@ -131,7 +131,7 @@ def pytest_collection_modifyitems(config, items):
                 print(item.name)
                 writer.writerow([item.name, item.location, item.parent, item.path, item.config] + item.user_properties )
     
-    result = []
+    result = [item for item in items]
     if reg_exp: 
         filtered_items = []
         for item in items:
